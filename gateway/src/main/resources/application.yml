@@ -1,12 +1,21 @@
+server:
+  port: 8081
+
 spring:
   application:
-    name: admin-client
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10
     health-check-url-path: /actuator/health
-    hostname: localhost
-
+    hostname: localhostLrj
   client:
     registryFetchIntervalSeconds: 5
     service-url:
@@ -19,7 +28,3 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
-server:
-  port: 8762
-
-
